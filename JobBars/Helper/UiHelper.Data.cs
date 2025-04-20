@@ -44,6 +44,7 @@ namespace JobBars.Helper {
         public static bool OutOfCombat => !Dalamud.Condition[ConditionFlag.InCombat];
         public static bool WeaponSheathed => Dalamud.ClientState.LocalPlayer != null && !Dalamud.ClientState.LocalPlayer.StatusFlags.HasFlag( StatusFlags.WeaponOut );
         public static bool WatchingCutscene => Dalamud.Condition[ConditionFlag.OccupiedInCutSceneEvent] || Dalamud.Condition[ConditionFlag.WatchingCutscene78] || Dalamud.Condition[ConditionFlag.BetweenAreas] || Dalamud.Condition[ConditionFlag.BetweenAreas51];
+        public static bool InDutyRecorder => Dalamud.Condition[ConditionFlag.DutyRecorderPlayback];
         public static bool CalcDoHide( bool enabled, bool hideOutOfCombat, bool hideWeaponSheathed ) {
             if( !enabled ) return true;
             if( OutOfCombat && hideOutOfCombat ) return true;

@@ -46,7 +46,10 @@ namespace JobBars {
             var ret = new List<CurrentPartyMember>();
             var localPlayer = Dalamud.ClientState.LocalPlayer;
 
-            var groupManager = GroupManager.Instance()->MainGroup;
+            var groupManager = UiHelper.InDutyRecorder
+                ? GroupManager.Instance()->ReplayGroup
+                : GroupManager.Instance()->MainGroup;
+
             if( groupManager.MemberCount == 0 ) { // fallback
                 var localPartyMember = new CurrentPartyMember {
                     IsPlayer = true,
